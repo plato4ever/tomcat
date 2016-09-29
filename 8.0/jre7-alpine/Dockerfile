@@ -94,6 +94,7 @@ RUN set -e \
 		echo >&2 "$nativeLines"; \
 		exit 1; \
 	fi
-
-EXPOSE 8080
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo "Asia/ShangHai" > /etc/timezone
+EXPOSE 8080 4446
 CMD ["catalina.sh", "run"]
